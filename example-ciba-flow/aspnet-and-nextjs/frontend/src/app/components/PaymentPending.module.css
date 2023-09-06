@@ -1,0 +1,15 @@
+.loading {
+    @apply h-10 w-20 fill-text-light animate-pulse overflow-visible;
+}
+
+.loading circle {
+    @apply animate-bounce;
+}
+
+.loading :nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.loading :nth-child(2) {
+    animation-delay: 0.2s;
+}

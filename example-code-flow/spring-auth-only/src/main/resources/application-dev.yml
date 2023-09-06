@@ -1,0 +1,14 @@
+server:
+  port: 3000
+  ssl:
+    key-store: certs/localhost.p12
+    key-store-type: PKCS12
+    key-store-password: changeit
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          bankid:
+            # See SecurityConfig
+            redirect-uri: https://localhost:3000/api/auth/callback

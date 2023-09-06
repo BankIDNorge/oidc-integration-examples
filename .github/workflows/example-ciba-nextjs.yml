@@ -1,0 +1,40 @@
+name: Build CIBA Example - Next.js
+
+on:
+  push:
+    paths:
+      - ".github/workflows/example-ciba-nextjs.yml"
+      - "example-ciba-flow/aspnet-and-nextjs/frontend/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('example-ciba-flow/aspnet-and-nextjs/frontend/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-            
+
+      - name: Install pnpm dependencies
+        working-directory: example-ciba-flow/aspnet-and-nextjs/frontend
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+
+      - name: Run build
+        working-directory: example-ciba-flow/aspnet-and-nextjs/frontend
+        run: pnpm build
+ 

@@ -1,0 +1,17 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          bankid:
+            client-id: ${BANKID_CLIENT_ID}
+            client-secret: ${BANKID_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - nnin_altsub
+        provider:
+          bankid:
+            # Override using the environment variable SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_BANKID_ISSUER_URI
+            issuer-uri: https://auth.current.bankid.no/auth/realms/current
+            
