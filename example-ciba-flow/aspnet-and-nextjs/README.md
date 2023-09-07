@@ -21,8 +21,8 @@ successfully implement the CIBA flow.
    of `appsettings.example.json` to `appsettings.json`. You need to replace the following values with your own
    credentials:
 
-- `CLIENT_ID` the merchant client id.
-- `CLIENT_SEC` the merchant client secret.
+- `BANKID_CLIENT_ID` the merchant client id.
+- `BANKID_CLIENT_SECRET` the merchant client secret.
 
 Now you should be good to go!
 
