@@ -1,7 +1,7 @@
 import { getCsrfToken } from "next-auth/react";
 
 export default function LogoutButton() {
-  const handleLogin = async () => {
+  const handleLogout = async () => {
     // TODO: handle error?
     const res = await fetch(`/api/auth/signout/bid`, {
       method: "post",
@@ -19,7 +19,7 @@ export default function LogoutButton() {
   };
   return (
     <button
-      onClick={handleLogin}
+      onClick={handleLogout}
       className="bg-background-light hover:bg-background-light-hover text-text-light text-lg font-medium px-6 py-2 rounded-full"
     >
       Log out

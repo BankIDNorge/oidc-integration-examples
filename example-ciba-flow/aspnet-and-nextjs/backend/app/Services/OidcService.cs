@@ -61,8 +61,8 @@ public class OidcService : IOidcService
 
         var configuration = await GetOidcConfigurationAsync();
 
-        var clientId = _configuration["CLIENT_ID"];
-        var clientSecret = _configuration["CLIENT_SEC"];
+        var clientId = _configuration["BANKID_CLIENT_ID"];
+        var clientSecret = _configuration["BANKID_CLIENT_SECRET"];
         var scope = _configuration["BANKID_SCOPE"];
 
         var body = new FormUrlEncodedContent(new[]

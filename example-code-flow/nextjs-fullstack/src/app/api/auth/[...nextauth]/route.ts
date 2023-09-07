@@ -20,8 +20,8 @@ const handler = NextAuth({
           scope: "openid profile nnin_altsub",
         },
       },
-      clientId: process.env.NEXTAUTH_CLIENT_ID,
-      clientSecret: process.env.NEXTAUTH_CLIENT_SECRET,
+      clientId: process.env.BANKID_CLIENT_ID,
+      clientSecret: process.env.BANKID_CLIENT_SECRET,
       idToken: true,
       checks: ["pkce", "state", "nonce"],
       profile(profile) {

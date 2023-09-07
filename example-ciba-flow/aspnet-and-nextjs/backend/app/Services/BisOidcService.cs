@@ -192,8 +192,8 @@ public class BisOidcService : IBisOidcService
     public async Task<TokenValidationResult> ValidateIdTokenAsync(string token)
     {
         // The audience claim in the ID token must match the merchant's client id.
-        var clientId = _configuration["CLIENT_ID"]
-                       ?? throw new InvalidOperationException("Missing configuration key CLIENT_ID");
+        var clientId = _configuration["BANKID_CLIENT_ID"]
+                       ?? throw new InvalidOperationException("Missing configuration key BANKID_CLIENT_ID");
 
         var configuration = await GetOidcConfigurationAsync();
         var jwks = await GetJwksAsync();
